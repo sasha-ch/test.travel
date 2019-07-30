@@ -26,6 +26,7 @@ class m190730_140716_mk_foreign_keys extends Migration
      */
     public function safeDown()
     {
+        echo "This migration is partially non-convertible";
         $this->dropForeignKey('fk-trip_service-trip_id', 'trip_service');
         $this->dropForeignKey('fk-flight_segment-flight_id', 'flight_segment');
         $this->dropForeignKey('fk-flight_segment-depAirportId', 'flight_segment');
@@ -33,18 +34,4 @@ class m190730_140716_mk_foreign_keys extends Migration
         $this->execute("ALTER TABLE nemo_guide_etalon.airport_name MODIFY airport_id INT NOT NULL");
     }
 
-    /*
-    // Use up()/down() to run migration code without a transaction.
-    public function up()
-    {
-
-    }
-
-    public function down()
-    {
-        echo "m190730_140716_mk_foreign_keys cannot be reverted.\n";
-
-        return false;
-    }
-    */
 }
